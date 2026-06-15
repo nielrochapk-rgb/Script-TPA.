@@ -1,0 +1,18 @@
+import { world } from "@minecraft/server";
+
+world.beforeEvents.chatSend.subscribe((event) => {
+    const msg = event.message.trim();
+    const player = event.sender;
+
+    if (msg.startsWith("!tpa")) {
+        event.cancel = true;
+        const args = msg.split(" ");
+        if (args.length < 2) {
+            player.runCommandAsync("tellraw @s {\"rawtext\":[{\"text\":\"§c§l[ERRO] Use: !tpa [nome_do_player]\"}]}");
+            return;
+        }
+        const targetName = args[1];
+        player.runCommandAsync(`execute as "${targetName}" run tellraw @s {\"rawtext\":[{\"text\":\"§e§l[TPA] §a${player.name} quer teletransportar até você!\"}]}`);
+        player.runCommandAsync("tellraw @s {\"rawtext\":[{\"text\":\"§a§l[TPA] Pedido enviado com sucesso!\"}]}");
+    }
+});
