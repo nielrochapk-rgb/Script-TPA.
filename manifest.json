@@ -1,0 +1,26 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "Comando de TPA criado por nielrochapk-rgb",
+    "name": "TPA Script Scripting API",
+    "uuid": "da3b6c20-745a-4b9e-bc43-2f08e53efb1c",
+    "version":,
+    "min_engine_version": [1, 20, 0]
+  },
+  "modules": [
+    {
+      "description": "Script de Teletransporte",
+      "type": "javascript",
+      "language": "javascript",
+      "uuid": "e81d6f22-96cb-4a61-9c66-4c74900a0cfb",
+      "version":,
+      "entry": "Tpa"
+    }
+  ],
+  "dependencies": [
+    {
+      "module_name": "@minecraft/server",
+      "version": "1.1.0"
+    }
+  ]
+}
